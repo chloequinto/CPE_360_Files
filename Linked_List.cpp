@@ -41,7 +41,7 @@ public:
 			chase = chase->next;
 			counter++;
 		}
-
+		
 		/* 
 		STEP 2: Check each case
 		Case 1: User wants to add to the top 
@@ -50,7 +50,7 @@ public:
 
 
 		// Case 1: 
-		if (pos == 1) // if they want to add to the top 
+		if (pos == 0) // if they want to add to the top 
 		{
 			if (head == NULL) // if there's nothing in the list
 			{
@@ -66,10 +66,10 @@ public:
 		}
 
 		//Case 2: 
-		else if (pos > 1 && pos <= counter) // if position is valid 
+		else if (pos > 0 && pos <= counter) // if position is valid 
 		{
 			follow = chase = head;
-			for (int i = 1; i < pos; i++)
+			for (int i = 0; i < pos; i++)
 			{
 				follow = chase;
 				chase = chase->next;
@@ -77,6 +77,8 @@ public:
 			follow->next = temp;
 			temp->next = chase;
 		}
+
+		
 
 		//Case 3: 
 		else //position is not valid 
@@ -106,7 +108,7 @@ public:
 		//Case 3: User picks a position not on the list 
 
 		//Case 1: 
-		if (pos == 1) { 
+		if (pos == 0) { 
 
 			if (head == NULL) //nothing in the list
 			{
@@ -122,11 +124,11 @@ public:
 		}
 
 		//Case 2: 
-		else if (pos > 1 && pos <= counter) {
+		else if (pos > 0 && pos <= counter) {
 				
 				follow = chase = head;
 
-				for (int i = 1; i < pos; i++) {
+				for (int i = 0; i < pos; i++) {
 					follow = chase;
 					chase = chase->next;
 				}
@@ -159,22 +161,29 @@ int main() {
 	linkedlist linky;
 	int choice;
 
+	cout << "Welcome to the Lined List. Note: the list starts at position 0" << endl;
+
 	while (1) {
+	
 		cout << "Press 1: Add from the list" << endl;
 		cout << "Press 2: Subtract the list" << endl;
 		cout << "Press 3: Display the list" << endl;
+		cout << "------------------------------" << endl;
 		cin >> choice;
 
 		switch (choice) {
 		case 1:
 			linky.add(); //parameters are not needed
+			cout << "------------------------------" << endl;
 			break;
 		case 2:
 			linky.subtract(); //parameters are not needed
+			cout << "------------------------------" << endl;
 			break;
 		case 3:
 			cout << "Here it is: " << endl;
 			linky.display();
+			cout << "------------------------------" << endl;
 			break;
 		default:
 			exit(1);
